@@ -16,6 +16,15 @@ Contributions are welcome! If you would like to contribute to this project, plea
 
 Please ensure your code follows the project's coding standards. Thank you for your contributions!
 
+## Testing
+
+You can test the APIs in this project using [Hoppscotch](https://hoppscotch.io). Here’s how to use it:
+
+1. Open [Hoppscotch](https://hoppscotch.io).
+2. Enter the API endpoint you wish to test.
+3. Set the request method and headers as needed.
+4. Send the request and view the response.
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for more details.
