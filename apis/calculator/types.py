@@ -1,1 +1,3 @@
-type NumericType = int | float
+from typing import Union
+
+NumericType = Union[int, float]
