@@ -1,4 +1,7 @@
-def log_operation(operation_name: str, a: int, b: int) -> None:
+from .types import NumericType
+
+
+def log_operation(operation_name: str, a: NumericType, b: NumericType) -> None:
     print(f"{operation_name} called with arguments:", a, b)
 
 
@@ -7,26 +10,26 @@ def validate_arguments(a, type1, b, type2) -> None:
         raise ValueError(f"Arguments must be {type1} and {type2}")
 
 
-def addition(a: int, b: int) -> int:
-    validate_arguments(a, int, b, int)
+def addition(a: NumericType, b: NumericType) -> NumericType:
+    validate_arguments(a, NumericType, b, NumericType)
     log_operation("Addition", a, b)
     return a + b
 
 
-def subtraction(a: int, b: int) -> int:
-    validate_arguments(a, int, b, int)
+def subtraction(a: NumericType, b: NumericType) -> NumericType:
+    validate_arguments(a, NumericType, b, NumericType)
     log_operation("Subtraction", a, b)
     return a - b
 
 
-def multiplication(a: int, b: int) -> int:
-    validate_arguments(a, int, b, int)
+def multiplication(a: NumericType, b: NumericType) -> NumericType:
+    validate_arguments(a, NumericType, b, NumericType)
     log_operation("Multiplication", a, b)
     return a * b
 
 
-def division(a: int, b: int) -> float:
-    validate_arguments(a, int, b, int)
+def division(a: NumericType, b: NumericType) -> float:
+    validate_arguments(a, NumericType, b, NumericType)
     log_operation("Division", a, b)
     try:
         return a / b
@@ -34,7 +37,7 @@ def division(a: int, b: int) -> float:
         raise ValueError("Cannot divide by zero")
 
 
-def modulus(a: int, b: int) -> int:
-    validate_arguments(a, int, b, int)
+def modulus(a: NumericType, b: NumericType) -> NumericType:
+    validate_arguments(a, NumericType, b, NumericType)
     log_operation("Modulus", a, b)
     return a % b

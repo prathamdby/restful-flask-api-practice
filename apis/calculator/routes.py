@@ -1,13 +1,14 @@
 from flask import Blueprint, jsonify, Response
 from .services import addition, subtraction, multiplication, division, modulus
+from .types import NumericType
 
 calculator = Blueprint("calculator", __name__)
 
 
 @calculator.route("/add/<int:a>/<int:b>", methods=["GET"])
-def add_route(a: int, b: int) -> Response:
+def add_route(a: NumericType, b: NumericType) -> Response:
     try:
-        result: int = addition(a, b)
+        result: NumericType = addition(a, b)
         return jsonify({"result": result}), 200
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
@@ -15,10 +16,10 @@ def add_route(a: int, b: int) -> Response:
         return jsonify({"error": "An unexpected error occurred"}), 500
 
 
-@calculator.route("/subtract/<int:a>/<int:b>", methods=["GET"])
-def subtract_route(a: int, b: int) -> Response:
+@calculator.route("/subtract/<a>/<b>", methods=["GET"])
+def subtract_route(a: NumericType, b: NumericType) -> Response:
     try:
-        result: int = subtraction(a, b)
+        result: NumericType = subtraction(a, b)
         return jsonify({"result": result}), 200
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
@@ -26,10 +27,10 @@ def subtract_route(a: int, b: int) -> Response:
         return jsonify({"error": "An unexpected error occurred"}), 500
 
 
-@calculator.route("/multiply/<int:a>/<int:b>", methods=["GET"])
-def multiply_route(a: int, b: int) -> Response:
+@calculator.route("/multiply/<a>/<b>", methods=["GET"])
+def multiply_route(a: NumericType, b: NumericType) -> Response:
     try:
-        result: int = multiplication(a, b)
+        result: NumericType = multiplication(a, b)
         return jsonify({"result": result}), 200
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
@@ -37,8 +38,8 @@ def multiply_route(a: int, b: int) -> Response:
         return jsonify({"error": "An unexpected error occurred"}), 500
 
 
-@calculator.route("/divide/<int:a>/<int:b>", methods=["GET"])
-def divide_route(a: int, b: int) -> Response:
+@calculator.route("/divide/<a>/<b>", methods=["GET"])
+def divide_route(a: NumericType, b: NumericType) -> Response:
     try:
         result: float = division(a, b)
         return jsonify({"result": result}), 200
@@ -48,10 +49,10 @@ def divide_route(a: int, b: int) -> Response:
         return jsonify({"error": "An unexpected error occurred"}), 500
 
 
-@calculator.route("/modulus/<int:a>/<int:b>", methods=["GET"])
-def modulus_route(a: int, b: int) -> Response:
+@calculator.route("/modulus/<a>/<b>", methods=["GET"])
+def modulus_route(a: NumericType, b: NumericType) -> Response:
     try:
-        result: int = modulus(a, b)
+        result: NumericType = modulus(a, b)
         return jsonify({"result": result}), 200
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
